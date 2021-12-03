@@ -19,7 +19,7 @@ const postTypeDefs =  gql `
         content: String!
         image: String!
     }
-    type DeletePostInput {
+    input DeletePostInput {
         id: Int!
         username: Int!
     }
@@ -30,15 +30,10 @@ const postTypeDefs =  gql `
 
     extend type Mutation {
         createPost(post: postInput!): Post
-    }
-    
-    extend type Mutation {
-        updatePost(post: UpdatePostInput!): post
-    }
-    
-    extend type Mutation {
+        updatePost(post: UpdatePostInput!): Post
         deletePost(post: DeletePostInput!): Post
     }
+    
 `
 
 module.exports = postTypeDefs;

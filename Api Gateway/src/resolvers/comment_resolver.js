@@ -1,22 +1,24 @@
 const commentResolver = {
     Query: {
-        commentByUsername: async(_, {username}, {dataSources, userIdToken}) => {
+        commentByIdPost: async(_, {username,postId}, {dataSources, userIdToken}) => {
             usernameToken = (await dataSources.authAPI.getUser(userIdToken)).username
             if (username == usernameToken)
-                return dataSources.commentAPI.commentByUsername(username)
+                return dataSources.commentAPI.commentByIdPost(username,postId)
             else
                 return null
         }
     },
 
     Mutation: {
-        createComment: async(_, {comment}, {dataSources, userIdToken}) => {
-            usernameToken = (await dataSources.authAPI.getUser(userIdToken)).username
-            usernameComment = comment.username;
-            if (usernameComment == usernameToken)
-                return dataSources.commentAPI.createComment(comment)
-            else
-                return null
+        createComment: async(_, {CommentInput}, {dataSources}) => {
+                const commentInput  ={
+                    username:userInput.username,
+                    content : CommentInput.content,
+                    image:CommentInput.image,
+                    lastChange: (new Date()).toISOString()
+                }  
+            return dataSources.commentAPI.createComment(commentInput)
+   
         },
         
         updateComment: async(_, {comment}, {dataSources, userIdToken}) => {

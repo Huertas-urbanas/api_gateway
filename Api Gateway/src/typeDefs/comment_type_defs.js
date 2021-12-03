@@ -17,29 +17,26 @@ const commentTypeDefs =  gql `
     }
 
     input UpdateCommentInput{
+        id:Int!
+        username!
         content: String!
         image: String!
     }
-    type DeleteCommentInput {
+    input DeleteCommentInput {
         id: Int!
         username: Int!
     }
 
     extend type Query {
-        commentByUsername(username: Int!): [Comment]
+        commentByIdPost(post: Int!): [Comment]
     }
 
     extend type Mutation {
         createComment(comment: CommentInput!): Comment
-    }
-    
-    extend type Mutation {
         updateComment(comment: UpdateCommentInput!): Comment
-    }
-    
-    extend type Mutation {
         deleteComment(comment: DeleteCommentInput!): Comment
     }
+    
 `
 
 module.exports = commentTypeDefs;

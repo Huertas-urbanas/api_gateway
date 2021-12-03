@@ -2,7 +2,7 @@ const { RESTDataSource } = require('apollo-datasource-rest');
 
 const serverConfig = require('../server');
 
-class RecommendationsAPI extends RESTDataSource {
+class RecommendationAPI extends RESTDataSource {
     constructor() {
       super();
       this.baseURL = serverConfig.post_api_url;
@@ -30,4 +30,4 @@ class RecommendationsAPI extends RESTDataSource {
         return await this.delete(`/recommendations/${id}`);
       }
   }
-module.exports = RecommendationsAPI;
+module.exports = RecommendationAPI;

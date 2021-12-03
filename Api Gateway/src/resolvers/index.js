@@ -5,6 +5,6 @@ const recommendationResolver = require('./recommendations_resolver');
 
 const lodash = require('lodash');
 
-const resolvers = lodash.merge(accountResolver, transactionResolver, authResolver);
+const resolvers = lodash.merge(commentResolver, postResolver, recommendationResolver, authResolver);
 
 module.exports = resolvers;

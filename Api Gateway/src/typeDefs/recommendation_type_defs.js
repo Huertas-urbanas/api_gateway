@@ -23,7 +23,7 @@ const recommendationTypeDefs =  gql `
         content: String!
         category: String!
     }
-    type DeleteRecommendationInput {
+    input DeleteRecommendationInput {
         id: String!
     }
 
@@ -35,15 +35,11 @@ const recommendationTypeDefs =  gql `
 
     extend type Mutation {
         createRecommendation(Recommendation: recommendationInput!): Recommendation
-    }
-    
-    extend type Mutation {
         updateRecommendation(recommendation: UpdateRecommendationInput!): Recommendation
-    }
-    
-    extend type Mutation {
         deleteRecommendation(recommendation: DeleteRecommendationInput!): Recommendation
+
     }
+
 `
 
 module.exports = recommendationTypeDefs;

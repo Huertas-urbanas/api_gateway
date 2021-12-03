@@ -34,7 +34,7 @@ const recommendationTypeDefs =  gql `
     }
 
     extend type Mutation {
-        create(Recommendation: recommendationInput!): Recommendation
+        createRecommendation(Recommendation: recommendationInput!): Recommendation
     }
     
     extend type Mutation {

@@ -35,7 +35,7 @@ const recommendationTypeDefs =  gql `
     extend type Mutation {
         createRecommendation(recommendation: RecommendationInput!): Recommendation!
         updateRecommendation(recommendation: UpdateRecommendationInput!): Recommendation!
-        deleteRecommendation(id: String!): Recommendation
+        deleteRecommendation(id: String!): String
 
     }
 

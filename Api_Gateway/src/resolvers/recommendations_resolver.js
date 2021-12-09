@@ -46,10 +46,11 @@ const recommendationResolver = {
                 return null
         },
         
-        deleteRecommendation: async(_, {recommendation}, {dataSources, userIdToken}) => {
+        deleteRecommendation: async(_, {id}, {dataSources, userIdToken}) => {
             usernameToken = (await dataSources.authAPI.getUser(userIdToken)).username
-            if (username == usernameToken)
-                return dataSources.recommendationAPI.deleteRecommendation(recommendation)
+            usernameRecommendation = (await dataSources.recommendationAPI.recommendationById(id)).username
+            if (usernameRecommendation == usernameToken)
+                return dataSources.recommendationAPI.deleteRecommendation(id)
             else
                 return null
         },

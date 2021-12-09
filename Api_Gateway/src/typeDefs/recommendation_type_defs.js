@@ -19,20 +19,22 @@ const recommendationTypeDefs =  gql `
 
     input UpdateRecommendationInput{
         id: String!
+        username: String!
         title: String!
         content: String!
         category: String!
+        releaseDate: String!
     }
 
     extend type Query {
-        recommendationById(id: String!): Recommendation!
+        recommendationById(id: String!): Recommendation
         recommendationByTitle(title: String!): [Recommendation]
         recommendationAll: [Recommendation]
     }
 
     extend type Mutation {
         createRecommendation(recommendation: RecommendationInput!): Recommendation!
-        updateRecommendation(recommendation: UpdateRecommendationInput!): Recommendation
+        updateRecommendation(recommendation: UpdateRecommendationInput!): Recommendation!
         deleteRecommendation(id: String!): Recommendation
 
     }

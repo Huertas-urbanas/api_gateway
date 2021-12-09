@@ -12,9 +12,10 @@ class RecommendationAPI extends RESTDataSource {
         recommendation = new Object(JSON.parse(JSON.stringify(recommendation)));
         return await this.post("/recommendations", recommendation);
     }
-    async updateRecommendation(id, recommendation) {
+    async updateRecommendation(recommendation) {
         recommendation = new Object(JSON.parse(JSON.stringify(recommendation)));
-        return await this.put(`/recommendations/${id}`, recommendation);
+        let usernameId = recommendation.id;
+        return await this.put(`/recommendations/${usernameId}`, recommendation);
       }
       async recommendations() {
         return await this.get(`/recommendations`);

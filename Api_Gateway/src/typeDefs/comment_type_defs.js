@@ -7,13 +7,14 @@ const commentTypeDefs =  gql `
         content: String!
         post: Int!
         date: String!
-        image: String!
+        image: String
     }
 
     input CommentInput {
         username : Int!
+        post: Int!
         content: String!
-        image: String!
+        image: String
     }
 
     input UpdateCommentInput {

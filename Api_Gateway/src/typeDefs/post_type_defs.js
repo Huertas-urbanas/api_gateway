@@ -5,7 +5,7 @@ const postTypeDefs =  gql `
         id: Int!
         user: Int!
         text: String!
-        date: String!
+        datepublished: String!
         image: String!
     }
 
@@ -16,7 +16,9 @@ const postTypeDefs =  gql `
     }
 
     input UpdatePostInput{
-        content: String!
+        id: Int!
+        user: Int!
+        text: String!
         image: String!
     }
     input DeletePostInput {
@@ -29,7 +31,7 @@ const postTypeDefs =  gql `
     }
 
     extend type Mutation {
-        createPost(post: postInput!): Post
+        createPost(post: postInput!): String
         updatePost(post: UpdatePostInput!): Post
         deletePost(post: DeletePostInput!): Post
     }

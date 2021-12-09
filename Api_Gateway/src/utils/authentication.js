@@ -15,11 +15,13 @@ const authentication = async ({ req }) => {
 
             let response = await fetch(
                 `${serverConfig.auth_api_url}/verifyToken/`,
-                requestOptions)
+                requestOptions
+            )
+
             if (response.status != 200) {
                 console.log(response)
                 throw new ApolloError(`SESION INACTIVA - ${401}` + response.status, 401)
-        }
+            }
 
         return { userIdToken: (await response.json()).UserId };
     }

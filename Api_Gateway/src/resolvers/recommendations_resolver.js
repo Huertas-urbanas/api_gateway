@@ -27,7 +27,7 @@ const recommendationResolver = {
     Mutation: {
         createRecommendation: async(_, {recommendation}, {dataSources, userIdToken}) => {
             usernameToken = (await dataSources.authAPI.getUser(userIdToken)).username
-            if (username == usernameToken)
+            if (recommendation.username == usernameToken)
                 return dataSources.recommendationAPI.createRecommendation(recommendation)
             else
                 return null

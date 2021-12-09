@@ -5,7 +5,7 @@ const serverConfig = require('../server');
 class RecommendationAPI extends RESTDataSource {
     constructor() {
       super();
-      this.baseURL = serverConfig.post_api_url;
+      this.baseURL = serverConfig.recommendations_api_url;
     }
   
     async createRecommendation(recommendation) {

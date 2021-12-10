@@ -4,26 +4,26 @@ const recommendationResolver = {
             //usernameToken = (await dataSources.authAPI.getUser(userIdToken)).username
             //const recommendation = await dataSources.recommendationAPI.recommendationById(id)
             //usernameRecommendation = recommendation.username
-            if(usernameToken == usernameRecommendation)
-                return recommendation;
-            else
-                return null
+            //if(usernameToken == usernameRecommendation)
+            return dataSources.recommendationAPI.recommendationById(id);
+            /*else
+                return null*/
         },
         recommendationByTitle: async(_, {username, title}, {dataSources, userIdToken}) => {
-            usernameToken = (await dataSources.authAPI.getUser(userIdToken)).username
-            if(usernameToken == usernameTransaction)
-                return transaction;
-            if (username = usernameToken)
+            //usernameToken = (await dataSources.authAPI.getUser(userIdToken)).username
+            //if(usernameToken == usernameTransaction)
+            return dataSources.recommendationAPI.recommendationByTitle(title);
+            /*if (username = usernameToken)
                 return dataSources.recommendationAPI.recommendationByTitle(title)
             else
-                return null
+                return null*/
         },
         recommendationAll: async(_, {}, {dataSources, userIdToken}) => {
-            usernameToken = (await dataSources.authAPI.getUser(userIdToken)).username
-            if (username == usernameToken)
-                return dataSources.recommendationAPI.recommendations()
-            else
-                return null
+            //usernameToken = (await dataSources.authAPI.getUser(userIdToken)).username
+            //if (username == usernameToken)
+            return dataSources.recommendationAPI.recommendations()
+            /*else
+                return null*/
         },
 
     },

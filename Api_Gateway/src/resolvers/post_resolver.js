@@ -1,19 +1,19 @@
 const postResolver = {
     Query: {
-        postByUser: async(_, {user}, { dataSources, userIdToken }) => {
-            if (user == userIdToken)
+        postByUser: async(_, {user}, { dataSources}) => {
+        //    if (user == userIdToken)
                 return await dataSources.postAPI.postByUser(user)
-            else
-                return null;
+        //    else
+        //        return null;
         }
     },
 
     Mutation: {
         createPost: async(_, {post}, { dataSources, userIdToken }) => {
-            if (post.user == userIdToken)
+        //    if (post.user == userIdToken)
                 return await dataSources.postAPI.createPost(post)
-            else
-                return null;
+        //    else
+        //        return null;
         },
         
         updatePost: async(_, {post}, { dataSources, userIdToken }) => {
@@ -25,9 +25,9 @@ const postResolver = {
         },
         
         deletePost: async(_, {post}, { dataSources, userIdToken }) => {
-            usernameToken = (await dataSources.authAPI.getUser(userIdToken)).user
-            if (username == usernameToken)
-                return await dataSources.postAPI.deletePost(post.id, post.user)
+            //usernameToken = (await dataSources.authAPI.getUser(userIdToken)).user
+            if (post.user == userIdToken)
+                return await dataSources.postAPI.deletePost(post)
             else
                 return null;
         },

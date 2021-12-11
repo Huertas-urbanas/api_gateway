@@ -12,15 +12,15 @@ class CommentAPI extends RESTDataSource {
       comment = new Object(JSON.parse(JSON.stringify(comment)));
       return await this.post(`/comment/`, comment);
     }
-    async updateComment(user,id, comment) {
+    async updateComment(comment) {
       comment = new Object(JSON.parse(JSON.stringify(comment)));
-      return await this.put(`/comment/update/${user}/${id}`, comment);
+      return await this.put(`/comment/update/${comment.user}/${comment.id}/`, comment);
     }
-    async commentByIdPost(postId) {
-      return await this.get(`/comment/${postId}`);
+    async commentByIdPost(post) {
+      return await this.get(`/comment/${post}`);
     }
-    async deleteComment(user, id) {
-      return await this.delete(`/comment/delete/${user}/${id}`);
+    async deleteComment(comment) {
+      return await this.delete(`/comment/delete/${comment.user}/${comment.id}/`);
     }
   }
   module.exports = CommentAPI;

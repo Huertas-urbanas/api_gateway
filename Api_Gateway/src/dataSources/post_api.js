@@ -14,13 +14,13 @@ class PostAPI extends RESTDataSource {
     }
     async updatePost(post) {
       post = new Object(JSON.parse(JSON.stringify(post)));
-      return await this.put(`post/update/${post.user}/${post.id}`, post);
+      return await this.put(`post/update/${post.user}/${post.id}/`, post);
     }
     async postByUser(user) {
-      return await this.get(`/post/${user}`);
+      return await this.get(`/post/${user}`); 
     }
-    async deletePost(id, user) {
-      return await this.delete(`/post/delete/${user}/${id}`);
+    async deletePost(post) {
+      return await this.delete(`/post/delete/${post.user}/${post.id}/`);
     }
   }
 module.exports = PostAPI;

@@ -30,11 +30,11 @@ const recommendationResolver = {
 
     Mutation: {
         createRecommendation: async(_, {recommendation}, {dataSources, userIdToken}) => {
-            usernameToken = (await dataSources.authAPI.getUser(userIdToken)).username
-            if (recommendation.username == usernameToken)
+            //usernameToken = (await dataSources.authAPI.getUser(userIdToken)).username
+            //if (recommendation.username == usernameToken)
                 return dataSources.recommendationAPI.createRecommendation(recommendation)
-            else
-                return null
+            //else
+            //    return null
         },
         
         updateRecommendation: async(_, {recommendation}, {dataSources, userIdToken}) => {

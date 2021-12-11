@@ -3,15 +3,15 @@ const { gql } = require("apollo-server")
 const commentTypeDefs =  gql `
     type Comment {
         id: Int!
-        username: Int!
+        user: Int!
         content: String!
         post: Int!
-        date: String!
+        datepublished: String!
         image: String
     }
 
     input CommentInput {
-        username : Int!
+        user : Int!
         post: Int!
         content: String!
         image: String
@@ -19,13 +19,14 @@ const commentTypeDefs =  gql `
 
     input UpdateCommentInput {
         id: Int!
-        username: Int!
+        user: Int!
         content: String!
-        image: String!
+        datepublished: String!
+        image: String
     }
     input DeleteCommentInput {
         id: Int!
-        username: Int!
+        user: Int!
     }
 
     extend type Query {
@@ -33,9 +34,9 @@ const commentTypeDefs =  gql `
     }
 
     extend type Mutation {
-        createComment(comment: CommentInput!): Comment
+        createComment(comment: CommentInput!): String
         updateComment(comment: UpdateCommentInput!): Comment
-        deleteComment(comment: DeleteCommentInput!): Comment
+        deleteComment(comment: DeleteCommentInput!): String
     }
     
 `
